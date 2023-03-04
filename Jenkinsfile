@@ -10,6 +10,8 @@ node {
         }
     }
     stage('Deliver') {
+        docker.image('maven:3-alpine').inside {
             sh './jenkins/scripts/deliver.sh'
+        }
     }
 }
